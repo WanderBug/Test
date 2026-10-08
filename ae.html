@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Member User ID Registration</title>
+    <link rel="stylesheet" href="ab.css">
+</head>
+<body>
+    <div>
+        <h3>Online Member User ID Registration</h3>
+    </div>
+    <hr>
+
+    <form id="regForm" novalidate>
+
+        <div>
+            <p class="req-note"><span class="req">*</span> Required Field</p>
+            <p class="Hed">Please supply the following information as reported to the Social Security System</p>
+        </div>
+        <br>
+
+        <div class="field">
+            <label class="crn" for="crn">CRN / SS Number <span class="req">*</span></label>
+            <input type="text" id="crn" class="crn" inputmode="numeric" maxlength="14" placeholder="Enter your CRN/SS Number">
+            <p class="error"></p>
+        </div>
+
+        <p class="note">If your email address is other than yahoo.com, kindly inform your network administrator not to block mail from sss.gov.ph.</p>
+
+        <div class="content-double">
+            <div class="EM field">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="text" id="email" class="formdouble" placeholder="Enter your Email Address">
+                <p class="error"></p>
+            </div>
+            <div class="CEM field">
+                <label for="confirmEmail">Confirm Email Address <span class="req">*</span></label>
+                <input type="text" id="confirmEmail" class="formdouble" placeholder="Confirm your Email Address">
+                <p class="error"></p>
+            </div>
+        </div>
+
+        <p class="note">Length must be 8-20 characters. First character must be alphabetic. No special characters except underscore. (Ex. Juan_Cruz1234)</p>
+
+        <div class="content-double">
+            <div class="UID field">
+                <label for="userId">Preferred User ID <span class="req">*</span></label>
+                <input type="text" id="userId" class="formdouble" maxlength="20" placeholder="Enter your User ID">
+                <span class="counter" id="uidCounter">0 / 20</span>
+                <p class="error"></p>
+            </div>
+            <div class="CUID field">
+                <label for="confirmUserId">Confirm Preferred User ID <span class="req">*</span></label>
+                <input type="text" id="confirmUserId" class="formdouble" maxlength="20" placeholder="Confirm your User ID">
+                <p class="error"></p>
+            </div>
+        </div>
+
+        <p class="note">The following characters are not allowed: # % ( ) \ - ' " | &amp; * /</p>
+
+        <div class="content-single">
+            <div class="SRL field">
+                <label for="surname">Surname/Last Name <span class="req">*</span></label>
+                <input type="text" id="surname" class="formSingle" placeholder="Enter your Surname/Last Name">
+                <p class="error"></p>
+            </div>
+            <div class="GN field">
+                <label for="givenName">Given Name <span class="req">*</span></label>
+                <input type="text" id="givenName" class="formSingle" placeholder="Enter your Given Name">
+                <p class="error"></p>
+            </div>
+            <div class="Mid field">
+                <label for="middleName">Middle Name</label>
+                <input type="text" id="middleName" class="formSingle" placeholder="Enter your Middle Name">
+                <p class="error"></p>
+            </div>
+        </div>
+
+        <div class="content-single">
+            <div class="DOB field">
+                <label for="dob">Date of Birth <span class="req">*</span></label>
+                <input type="date" id="dob" class="test">
+                <p class="error"></p>
+            </div>
+        </div>
+
+        <div>
+            <p class="address-title"><span class="req">*</span> Mailing Address (Philippine Address)</p>
+        </div>
+
+        <div class="content-single region">
+            <label><input type="radio" name="region" value="metro" checked> Metro Manila</label>
+            <label><input type="radio" name="region" value="province"> Province</label>
+        </div>
+
+        <div class="content-double">
+            <div class="field">
+                <label for="unit">Room / Floor / Unit No. &amp; Building Name</label>
+                <input type="text" id="unit" class="formdouble" placeholder="Enter your Unit / Building">
+            </div>
+            <div class="field">
+                <label for="house">House / Lot &amp; Block No.</label>
+                <input type="text" id="house" class="formdouble" placeholder="Enter your House / Lot / Block">
+            </div>
+        </div>
+
+        <div class="content-double">
+            <div class="field">
+                <label for="street">Street</label>
+                <input type="text" id="street" class="formdouble" placeholder="Enter your Street">
+            </div>
+            <div class="field">
+                <label for="subdivision">Subdivision</label>
+                <input type="text" id="subdivision" class="formdouble" placeholder="Enter your Subdivision">
+            </div>
+        </div>
+
+        <div class="content-single">
+            <div class="field">
+                <label for="city">City / Municipality <span class="req">*</span></label>
+                <input type="text" id="city" class="formSingle" placeholder="Enter your City / Municipality">
+                <p class="error"></p>
+            </div>
+            <div class="field" id="provinceField" hidden>
+                <label for="province">Province <span class="req">*</span></label>
+                <input type="text" id="province" class="formSingle" placeholder="Enter your Province">
+                <p class="error"></p>
+            </div>
+            <div class="field">
+                <label for="zip">ZIP Code</label>
+                <input type="text" id="zip" class="formSingle" inputmode="numeric" maxlength="4" placeholder="Enter your ZIP Code">
+                <p class="error"></p>
+            </div>
+        </div>
+
+        <div class="content-single buttons">
+            <button type="reset" class="btn btn-clear">Clear</button>
+            <button type="submit" class="btn btn-submit">Register</button>
+        </div>
+
+        <p class="form-error" id="formError" role="alert" hidden></p>
+    </form>
+
+    <div id="success" class="success" hidden tabindex="-1">
+        <h3>Registration submitted</h3>
+        <p>Thank you, <strong id="successName"></strong>.</p>
+        <p>Your User ID: <strong id="successId"></strong></p>
+        <button type="button" class="btn btn-submit" id="againBtn">Register another member</button>
+    </div>
+
+    <script src="fe.js"></script>
+</body>
+</html>
